@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CleanOptimizer
 
-## Getting Started
+A premium, native macOS application designed to clean, optimize, and manage your Mac.
 
-First, run the development server:
+**Developed and Maintained by:** [AppConsultDeck](https://github.com/Donpabloo00)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🧹 System Cleaner
+- Scans user caches, system logs, Safari cache, and temp files.
+- Displays folder sizes and lets you select specific categories for safe deletion.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ⚡ Performance Optimizer
+- Purges inactive physical RAM memory.
+- Rebuilds the Spotlight search index.
+- Tunes standby power settings for instant wake-up.
+- Securely prompts for administrator authorization once using an AppleScript runner.
+- Includes a terminal log viewer console.
 
-## Learn More
+### 📦 App Uninstaller
+- Scans installed apps in `/Applications`.
+- Calculates application bundle sizes asynchronously.
+- Moves selected apps to the Trash.
+- Automatically cleans leftover configuration and cache files in `~/Library/`.
 
-To learn more about Next.js, take a look at the following resources:
+### ✉️ Mailbox Cleaner
+- Connects natively to the macOS Mail.app.
+- Provides a clean queue view of emails.
+- Quick clean action buttons:
+  - 🔴 **Delete (Red)**: Moves the email to the Trash.
+  - 🟢 **Keep (Green)**: Marks the email as read and skips to the next.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technical Specifications
 
-## Deploy on Vercel
+- **Language & Frameworks**: Swift 5.9, SwiftUI, AppKit (native macOS APIs)
+- **Architecture**: Non-sandboxed standalone application for low-level system access.
+- **Dependencies**: ShellOut library.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Installation & Build
+
+1. Open the Swift Package in Xcode or compile via CLI:
+   ```bash
+   cd CleanOptimizerApp
+   swift build -c release
+   ```
+2. Build the DMG installer using the included packaging script:
+   ```bash
+   ./package_dmg.sh
+   ```
+3. Run `CleanOptimizer.dmg` and install the app!
